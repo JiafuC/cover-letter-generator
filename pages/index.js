@@ -45,7 +45,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>OpenAI Quickstart</title>
+        <title>Cover Letter Generator</title>
         <link rel="icon" href="/dog.png" />
       </Head>
 
