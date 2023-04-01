@@ -45,23 +45,23 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Cover Letter Generator</title>
+        <title>求职信生成器</title>
         <link rel="icon" href="/dog.png" />
       </Head>
 
       <main className={styles.main}>
         <img src="/dog.png" className={styles.icon} />
-        <h3>Cover Letter Generator</h3>
+        <h3>求职信生成器</h3>
         <form onSubmit={onSubmit}>
           <textarea
             name="skills"
-            placeholder="Your Skills"
+            placeholder="请输入您的技能"
             value={skillsInput}
             onChange={(e) => setSkillsInput(e.target.value)}
           />
           <textarea
             name="job_description"
-            placeholder="Job Description"
+            placeholder="请输入职位要求"
             value={jobDescriptionInput}
             onChange={(e) => setJobDescriptionInput(e.target.value)}
           />
@@ -73,7 +73,7 @@ export default function Home() {
                 value={temperatureInput}
                 onChange={(e) => setTemperatureInput(parseFloat(e.target.value))}
             />
-            <p>Selected temperature: {temperatureInput}</p>
+            <p><b className={styles.green}>选择的温度: {temperatureInput} </b> <br/><i>温度数值越小，求职信内容约中规中矩。温度数值越高，求职信内容约有创造力。</i></p>
             <input
                 type="range"
                 min="50"
@@ -82,9 +82,9 @@ export default function Home() {
                 value={tokensInput}
                 onChange={(e) => setTokensInput(parseInt(e.target.value))}
             />
-            <p>Selected tokens: {tokensInput}</p>
+            <p><b className={styles.green}>选择的token总数: {tokensInput}</b> <br/><i>token总数越小，求职信内容越短，但收费越便宜。token总数越大，求职信内容越长，但收费越贵。</i></p>
 
-            <input type="submit" value="Generate a cover letter" />
+            <input type="submit" value="生成求职信" />
         </form>
         <div className={styles.result}>{loading?'Loading....':result}</div>
       </main>

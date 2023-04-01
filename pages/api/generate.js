@@ -26,7 +26,7 @@ export default async function (req, res) {
   if (skills.trim().length === 0) {
     res.status(400).json({
       error: {
-        message: "Please enter your skills!",
+        message: "请输入您的技能！",
       }
     });
     return;
@@ -36,7 +36,7 @@ export default async function (req, res) {
   if (job_description.trim().length === 0) {
     res.status(400).json({
         error: {
-            message: "Please enter the job description!",
+            message: "请输入职位要求！",
         }
     });
     return;
@@ -70,17 +70,12 @@ function generatePrompt(skills,job_description) {
   const capitalizedSkills = skills[0].toUpperCase() + skills.slice(1).toLowerCase();
   const capitalizedJobDescription = job_description[0].toUpperCase() + job_description.slice(1).toLowerCase();
 
-  // return `Suggest three names for an animal that is a superhero.
-  //
-  //   Animal: Cat
-  //   Names: Captain Sharpclaw, Agent Fluffball, The Incredible Feline
-  //   Animal: Dog
-  //   Names: Ruff the Protector, Wonder Canine, Sir Barks-a-Lot
-  //   Animal: ${capitalizedSkills}
-  //   Names:`;
-
-    return `Please write me a cover letter based on my skills and job description.
+    // return `Please write me a cover letter based on my skills and job description.
+    //
+    //     My Skills: ${capitalizedSkills}
+    //     Job Description:${capitalizedJobDescription}`;
+    return `请根据我的技能和职位要求帮我写一封求职信。
     
-        My Skills: ${capitalizedSkills}
-        Job Description:${capitalizedJobDescription}`;
+        我的技能: ${capitalizedSkills}
+        职位要求:${capitalizedJobDescription}`;
 }
